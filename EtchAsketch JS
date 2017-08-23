@@ -1,0 +1,70 @@
+$(document).ready(function() {
+  for (var i = 0; i < 16; i++) {
+    for (var y = 0; y < 16; y++) {
+      var unit = $("<div class='unit'></div>");
+      unit.appendTo('#container');
+    }
+  }
+
+  $('#grid').click(function() {
+    $('#container').empty();
+    $('.unit').css("background-color", "black");
+    var row = prompt("How many rows?");
+    var col = prompt("How many columns?");
+    //decides rows
+    for (var z = 0; z < row; z++) {
+      //decides cols
+      for (var x = 0; x < col; x++) {
+        var unit = $("<div class='unit'></div>");
+        unit.appendTo('#container');
+      }
+    }
+  });
+
+  $('.unit').hover(function() {
+    //changes .unit colour when hovered over with mouse
+    $(this).css("background-color", "white");
+  });
+
+  $('#reset').click(function() {
+    //Asks user to reset grid drawing
+    var Answer = prompt("Are you sure you want to reset? Y or N")
+    if (Answer = "Y") {
+      $('.unit').css("background-color", "black");
+      //removes class change ^^
+    } else if (Answer = "N") {
+      alert("You have not reset the board");
+    };
+  });
+
+  //creates a random hex colour
+  var randColor = (function() {
+    //placeholder
+    colorOut = "#";
+    //Array contining hex inputs
+    colArr = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'A', 'B', 'C', 'D', 'E', 'F']
+    for (var a = 0; a < 6; a++) {
+      colorOut += colArr[Math.floor(Math.random() * 15)];
+    }
+    return colorOut;
+  });
+
+  //Creates random coloured trail and hovered over container
+  $('#colours').click(function() {
+    $('.unit').hover(function() {
+      $(this).css("background-color", randColor())
+    }, function() {
+      $(this).css("background-color", randColor())
+    });
+  });
+
+  $('#trail').click(function(){
+  	$('.unit').hover(function(){
+    $(this).css("background-color", "white");
+    });
+  });
+
+
+
+
+});

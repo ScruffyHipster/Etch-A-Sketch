@@ -1,0 +1,23 @@
+<div class="buttons">
+  <button type="button" id="reset">
+    Reset
+  </button>
+  <button type="button" id="grid">
+    Grid
+  </button>
+  <button type="button" id="colours">
+    Colours
+  </button>
+  <button type="button" id="trail">
+    Trail
+  </button>
+
+
+</div>
+
+<div id="container">
+
+</div>
+
+<p>Etch a Sketch
+</p>
